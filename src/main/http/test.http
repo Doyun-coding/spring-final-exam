@@ -1,0 +1,143 @@
+### department 등록
+POST http://localhost:8080/department
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id":"CS0001",
+  "name":"고객서비스1팀"
+}
+
+### department 등록 txt
+POST http://localhost:8080/department
+Content-Type:
+X-USER-ID:nhnacademy
+
+### department 조회
+GET http://localhost:8080/department/CS0001
+Content-Type: application/json
+X-USER-ID: nhnacademy
+
+### department 조회
+GET http://localhost:8080/department/CS0001
+Content-Type:
+X-USER-ID: nhnacademy
+
+###
+--------------------------------
+
+### json Request
+POST http://localhost:8080/departments
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+ "id" : "CS0001",
+ "name" : "고객서비스1팀"
+}
+
+### 조회
+GET http://localhost:8080/departments/CS0001
+X-USER-ID:nhnacademy
+
+### 수정
+PUT http://localhost:8080/departments/CS0001
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "name" : "CS1팀"
+}
+
+### 삭제
+DELETE http://localhost:8080/departments/CS0001
+X-USER-ID:nhnacademy
+
+### 아이디 값 중복 체크
+POST http://localhost:8080/departments
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id" : "L1001",
+  "name" : "고객서비스1팀"
+}
+
+### department not found
+GET http://localhost:8080/departments/CS0002
+X-USER-ID:nhnacademy
+
+### POST
+POST http://localhost:8080/department-members
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id" : 20000428,
+  "name" : "doyun",
+  "departmentId" : "L1001",
+  "department" : "고객서비스1팀"
+}
+
+
+### -------------------------
+
+### L1001 부서조회
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:nhnacademy
+
+
+### Exception - Missing Parameter
+GET http://localhost:8080/department-members
+Accept:application/json
+X-USER-ID:nhnacademy
+
+
+### Exception - Empty Parameter
+GET http://localhost:8080/department-members?departmentIds=
+Accept:application/json
+X-USER-ID:nhnacademy
+
+
+### Exception - application/csv
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/csv
+X-USER-ID:nhnacademy
+
+
+### Exception - X-USER-ID:marco
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:marco
+
+
+### Exception - X-USER-ID : Empty
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:
+
+
+### Exception - X-USER-ID : NULL
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+
+### xml 파일 동작
+GET http://localhost:8080/departments/L1001
+Accept:application/xml
+X-USER-ID:nhnacademy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
